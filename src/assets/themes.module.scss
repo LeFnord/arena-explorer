@@ -1,0 +1,53 @@
+// colors
+html {
+  color: $bg;
+  background-color: $color;
+}
+header {
+  color: $color;
+  background-color: $black_80;
+}
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    color: $bg-lighter;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: $color;
+    background-color: $black_80;
+  }
+  header {
+    color: $color-darker;
+    background-color: $bg-darker;
+  }
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+    &:hover {
+      color: $color-lighter;
+    }
+  }
+  .card {
+    color: $color-lighter;
+    background-color: $black_80;
+
+    border: 0.5px solid $color-darker;
+    box-shadow: $shadow;
+  }
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    color: $color;
+    background-color: $black_80;
+  }
+}

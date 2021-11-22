@@ -1,0 +1,126 @@
+// Buttons
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: $line-height-computed;
+  padding: 0 1rem;
+  margin: 0.5rem;
+
+  text-align: center;
+  font-size: $font-size-small;
+  font-weight: bolder;
+  line-height: $line-height-computed;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: $color;
+  border: 0.5px solid $color-darker;
+  border-radius: 0.123rem;
+  box-shadow: $shadow;
+  cursor: pointer;
+  &:hover {
+    color: $color-darker;
+    background-color: $color-lighter;
+    border-color: $color-darker;
+    outline: 0;
+    box-shadow: $shadow-active;
+  }
+  &.primary {
+    color: $color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover, &:focus {
+      color: $color-lighter;
+      background-color: $primary-color-active;
+      border-color: $primary-color-active;
+    }
+  }
+  &.accent {
+    color: $color;
+    background-color: $accent-color;
+    border-color: $accent-color;
+    &:hover, &:focus {
+      color: $color-lighter;
+      background-color: $accent-color-active;
+      border-color: $accent-color-active;
+    }
+  }
+}
+
+
+// Forms
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  display: inline-block;
+  height: $line-height-computed;
+  padding: 0 1rem 0.25rem 0.1rem;
+  margin: 0.5rem;
+
+  text-align: left;
+  font-size: $font-size-small;
+  line-height: $line-height-computed;
+
+  color: $bg;
+  background-color: $color;
+
+  border: 0;
+  border-bottom: 3px solid $accent-color;
+}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="button"],
+input[type="submit"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 0;
+  border-bottom: 3px solid $accent-color-active;
+  outline: 0;
+}
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }

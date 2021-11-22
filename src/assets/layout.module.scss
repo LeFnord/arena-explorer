@@ -1,0 +1,59 @@
+// the layout stuff
+header {
+  position: fixed;
+  width: 100%;
+  height: calc($line-height-computed * 5);
+  z-index: 1;
+  padding: 0 $line-height-computed;
+}
+
+main {
+  position: relative;
+  top: calc($line-height-computed * 5);
+  padding: $line-height-computed;
+  z-index: 0;
+  nav {
+    height: calc($line-height-computed * 3);
+  }
+  &.content {
+    margin-top: 3rem;
+  }
+}
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1rem;
+  &.six {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  &.five {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  &.twelve {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.card {
+  background-color: $color-lighter;
+  box-shadow: $shadow;
+  margin: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: all .5s ease-in-out;
+
+  border: 0.5px solid $color-darker;
+  border-radius: 0.123rem;
+  box-shadow: $shadow;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  height: calc($line-height-computed * 5.9);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}

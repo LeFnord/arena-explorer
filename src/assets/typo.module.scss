@@ -1,0 +1,39 @@
+// some typo stuff
+h1 {
+  font-size: 200%;
+  margin-top: calc($line-height-computed * 2);
+  margin-bottom: $line-height-computed;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 175%;
+  margin-top: calc($line-height-computed * 2);
+  margin-bottom: $line-height-computed;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 166%;
+  margin-top: $line-height-computed;
+  margin-bottom: calc($line-height-computed / 2);
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 150%;
+  margin-top: $line-height-computed;
+  margin-bottom: calc($line-height-computed / 2);
+  font-weight: 500;
+}
+
+bold {
+  font-weight: 500;
+}
+
+ul {
+  list-style: '→ ' inside;
+}
+ol {
+  list-style: decimal inside;
+}
