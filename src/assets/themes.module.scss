@@ -1,42 +1,101 @@
 // colors
 html {
-  color: $bg;
-  background-color: $color;
+  color: $color;
+  background-color: $bg;
 }
 header {
-  color: $color;
-  background-color: $black_80;
+  color: $bg-darker;
+  background-color: $color;
 }
 a {
   color: $primary-color;
   text-decoration: none;
   &:hover {
-    color: $bg-lighter;
+    color: $color-lighter;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color: $color;
-    background-color: $black_80;
+.card {
+  background-color: $bg;
+  border: 0.5px solid $color-lighter;
+  box-shadow: $shadow-active;
+  &:hover {
+    box-shadow: $shadow;
   }
-  header {
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color: $bg;
+  border: 0.5px solid $color-darker;
+  box-shadow: $shadow;
+  &:hover {
     color: $color-darker;
     background-color: $bg-darker;
+    border-color: $color-darker;
+    outline: 0;
+    box-shadow: $shadow-active;
+  }
+  &.primary {
+    color: $color;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover, &:focus {
+      color: $color-lighter;
+      background-color: $primary-color-active;
+      border-color: $primary-color-active;
+    }
+  }
+  &.accent {
+    color: $color;
+    background-color: $accent-color;
+    border-color: $accent-color;
+    &:hover, &:focus {
+      color: $color-lighter;
+      background-color: $accent-color-active;
+      border-color: $accent-color-active;
+    }
+  }
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  color: $color;
+  background-color: $bg;
+}
+
+// dark theme
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color: $bg-darker;
+    background-color: $color-lighter;
+  }
+  header {
+    color: $bg-darker;
+    background-color: $color;
   }
   a {
     color: $primary-color;
-    text-decoration: underline;
     &:hover {
-      color: $color-lighter;
+      color: $bg-darker;
     }
   }
   .card {
-    color: $color-lighter;
-    background-color: $black_80;
+    color: $bg-darker;
+    background-color: $color-lighter;
 
     border: 0.5px solid $color-darker;
-    box-shadow: $shadow;
   }
   input[type="email"],
   input[type="number"],
@@ -47,7 +106,7 @@ a {
   input[type="password"],
   textarea,
   select {
-    color: $color;
-    background-color: $black_80;
+    color: $bg-darker;
+    background-color: $color-lighter;
   }
 }

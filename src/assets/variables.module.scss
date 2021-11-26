@@ -1,23 +1,13 @@
-$white: #fafafa;
-$black: #111111;
-// $white: #d9d9d9;
-// $black: #353531;
+$white: #c9c9c9;
+$black: #353534;
 
-$color: $white;
+$color: $black;
 $color-lighter: lighten($color, 10);
 $color-darker: darken($color, 33);
 
-$bg: $black;
+$bg: $white;
 $bg-lighter: lighten($bg, 33);
 $bg-darker: darken($bg, 10);
-
-$black_20: lighten($black, 70);;
-$black_40: lighten($black, 40);
-$black_80: lighten($black, 10);
-// $black_20: #7E7E7B;
-// $black_40: #6C6C69;
-// $black_80: #393936;
-
 
 // error color
 $red: #C1232B;

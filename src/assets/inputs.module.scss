@@ -17,38 +17,8 @@ input[type="button"] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: $color;
-  border: 0.5px solid $color-darker;
   border-radius: 0.123rem;
-  box-shadow: $shadow;
   cursor: pointer;
-  &:hover {
-    color: $color-darker;
-    background-color: $color-lighter;
-    border-color: $color-darker;
-    outline: 0;
-    box-shadow: $shadow-active;
-  }
-  &.primary {
-    color: $color;
-    background-color: $primary-color;
-    border-color: $primary-color;
-    &:hover, &:focus {
-      color: $color-lighter;
-      background-color: $primary-color-active;
-      border-color: $primary-color-active;
-    }
-  }
-  &.accent {
-    color: $color;
-    background-color: $accent-color;
-    border-color: $accent-color;
-    &:hover, &:focus {
-      color: $color-lighter;
-      background-color: $accent-color-active;
-      border-color: $accent-color-active;
-    }
-  }
 }
 
 
@@ -71,9 +41,6 @@ select {
   text-align: left;
   font-size: $font-size-small;
   line-height: $line-height-computed;
-
-  color: $bg;
-  background-color: $color;
 
   border: 0;
   border-bottom: 3px solid $accent-color;

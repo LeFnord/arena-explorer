@@ -11,6 +11,8 @@ export default defineConfig({
   },
   server: {
     open: true,
-    port: 4000
+    port: 4000,
+    strictPort: true,
+    https: true
   },
 })

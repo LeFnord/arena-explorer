@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000/v2',
-  // baseURL: 'https://api.are.na/v2',
+  // baseURL: 'http://localhost:3000/v2',
+  // baseURL: 'https://staging-os.are.na/api/v2',
+  baseURL: 'https://api.are.na/v2',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

@@ -25,8 +25,6 @@ export default {
   methods: {
     handleTerm() {
       let object_exp = new RegExp('^(c|b|C|B):\s*')
-
-
       if (this.term.startsWith('@')) {         // users
         this.q = this.term.substring(1)
         this.userSearch()

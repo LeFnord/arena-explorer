@@ -37,15 +37,7 @@ main {
 }
 
 .card {
-  background-color: $color-lighter;
-  box-shadow: $shadow;
-  margin: 0.25rem;
-  padding: 0.5rem 1rem;
-  transition: all .5s ease-in-out;
-
-  border: 0.5px solid $color-darker;
   border-radius: 0.123rem;
-  box-shadow: $shadow;
   padding: 1rem;
   margin: 0.75rem 0;
   height: calc($line-height-computed * 5.9);

@@ -1,8 +1,8 @@
 <template>
   <div id="Explore">
     <input type="text" v-model="term">
-    <!-- <input type="button" value="explore" class="primary" @click="explore"> -->
     <!-- <input type="button" value="explore"> -->
+    <!-- <input type="button" value="explore" class="primary"> -->
     <input type="button" value="explore" class="accent" @click="explore">
 
     <Results :results="results"/>

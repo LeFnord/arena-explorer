@@ -1,22 +1,22 @@
 <template>
   <div id="Results">
-    <h2>Channels</h2>
+    <h2 v-if="results.channels && results.channels.length > 0">Channels</h2>
     <div class="container five">
       <div class="card"  v-for="channel in results.channels" :key="channel.id">
         {{ channel.title }}
       </div>
     </div>
-    <hr>
-    <h2>Blocks</h2>
+
+    <h2 v-if="results.blocks && results.blocks.length > 0">Blocks</h2>
     <div class="container five">
       <div class="card" v-for="block in results.blocks" :key="block.id">
-        <bold>{{ block.title }}</bold>
+        <span class="bold">{{ block.title }}</span>
         <br>
         {{ block.content_markdown }}
       </div>
     </div>
-    <hr>
-    <h2>Users</h2>
+
+    <h2 v-if="results.users && results.users.length > 0">Users</h2>
     <div class="container five">
       <div class="card" v-for="user in results.users" :key="user.id">
         {{ user.username }}

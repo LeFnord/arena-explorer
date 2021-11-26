@@ -1,7 +1,7 @@
 <template>
   <header v-if="$route.meta.title">
     <h1 @click="counter = 0">
-      {{ $route.meta.title }} / {{ counter }}
+      {{ $route.meta.title }} / {{ counter }}<span class="blink">:</span>{{ counter_q }}
     </h1>
   </header>
   <main>
@@ -24,8 +24,29 @@ let counter = ref(0)
 setInterval(() => {
   counter.value++
 }, 1000)
+
+let counter_q = ref(1)
+
+setInterval(() => {
+  if (counter_q.value == 99) {
+    counter_q.value = 0
+  } else {
+    counter_q.value++
+  }
+}, 10)
 </script>
 
-<style lang='sass'>
-@import '@/assets/app.scss'
+<style lang='scss'>
+@import '@/assets/app.scss';
+
+.blink {
+  animation: blinker 2s infinite
+}
+
+@keyframes blinker {
+    from { opacity: 1.0; }
+    25% { opacity: 0.25; }
+    50% { opacity: 0.0; }
+    to { opacity: 1.0; }
+}
 </style>
