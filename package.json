@@ -6,7 +6,6 @@
   "author": "LeFnord",
   "license": "MIT",
   "private": false,
-
   "main": "main.js",
   "scripts": {
     "dev": "vite",
