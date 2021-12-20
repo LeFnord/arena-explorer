@@ -31,8 +31,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
-textarea,
-select {
+textarea {
   display: inline-block;
   height: $line-height-computed;
   padding: 0 1rem 0.25rem 0.1rem;
@@ -71,7 +70,7 @@ input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
-select:focus {
+option:checked {
   border: 0;
   border-bottom: 3px solid $accent-color-active;
   outline: 0;

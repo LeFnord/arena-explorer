@@ -30,8 +30,17 @@ export default {
     return apiClient.get(`search/users?q=${prepare(term)}`)
   },
 
-  explore(term) {
-    return apiClient.get(`search/explore?q=${prepare(term)}`)
+  explore(term, seed, models, page) {
+    console.log(models.target);
+    return apiClient.get('search/explore', {
+      params: {
+        q: prepare(term),
+        sort_by: 'random',
+        page: page,
+        seed: seed,
+        models: models.target
+      }
+    })
   }
 }
 

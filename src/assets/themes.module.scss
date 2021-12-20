@@ -75,37 +75,38 @@ select {
 }
 
 // dark theme
-@media (prefers-color-scheme: dark) {
-  html {
-    color: $bg-darker;
-    background-color: $color-lighter;
-  }
-  header {
-    color: $bg-darker;
-    background-color: $color;
-  }
-  a {
-    color: $primary-color;
-    &:hover {
-      color: $bg-darker;
-    }
-  }
-  .card {
-    color: $bg-darker;
-    background-color: $color-lighter;
 
-    border: 0.5px solid $color-darker;
-  }
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="text"],
-  input[type="tel"],
-  input[type="url"],
-  input[type="password"],
-  textarea,
-  select {
-    color: $bg-darker;
-    background-color: $color-lighter;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color: $bg-darker;
+//     background-color: $color-lighter;
+//   }
+//   header {
+//     color: $bg-darker;
+//     background-color: $color;
+//   }
+//   a {
+//     color: $primary-color;
+//     &:hover {
+//       color: $bg-darker;
+//     }
+//   }
+//   .card {
+//     color: $bg-darker;
+//     background-color: $color-lighter;
+//
+//     border: 0.5px solid $color-darker;
+//   }
+//   input[type="email"],
+//   input[type="number"],
+//   input[type="search"],
+//   input[type="text"],
+//   input[type="tel"],
+//   input[type="url"],
+//   input[type="password"],
+//   textarea,
+//   select {
+//     color: $bg-darker;
+//     background-color: $color-lighter;
+//   }
+// }

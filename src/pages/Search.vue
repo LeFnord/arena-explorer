@@ -1,24 +1,29 @@
 <template>
   <div id="Search">
+    <!-- <Objects v-model="models"/> -->
     <input type="text" v-model="term" @keyup.enter="handleTerm">
-
+    <!-- {{ models }} -->
     <Results :results="results"/>
   </div>
 </template>
 
 <script>
 import SearchService from '@/services/SearchService.js'
+
+import Objects from '@/components/Objects.vue'
 import Results from '@/components/Results.vue'
 
 export default {
   name: "Search",
   components: {
+    Objects,
     Results
   },
   data() {
     return {
       term: '',
       q: '',
+      models: ['ALL'],
       results: {}
     }
   },
