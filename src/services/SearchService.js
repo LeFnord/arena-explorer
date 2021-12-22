@@ -16,18 +16,14 @@ const apiClient = axios.create({
 })
 
 export default {
-  all(term) {
-    return apiClient.get(`search?q=${prepare(term)}`)
+  all(term, page) {
+    return apiClient.get(`search?q=${prepare(term)}&page=${page}`)
   },
 
-  // object_type: channels|blocks
-  others(object_type, term) {
+  // object_type: blocks|channels|users
+  others(object_type, term, page) {
     console.log(`search/${object_type}?q=${prepare(term)}`);
-    return apiClient.get(`search/${object_type}?q=${prepare(term)}`)
-  },
-
-  users(term) {
-    return apiClient.get(`search/users?q=${prepare(term)}`)
+    return apiClient.get(`search/${object_type}?q=${prepare(term)}&page=${page}`)
   },
 
   explore(term, seed, models, page) {
