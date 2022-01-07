@@ -4,6 +4,7 @@
     <div class="container five">
       <div class="card"  v-for="channel in results.channels" :key="channel.id">
         {{ channel.title }}
+        {{ channel.created_at }}
       </div>
     </div>
 
@@ -13,6 +14,7 @@
         <span class="bold">{{ block.title }}</span>
         <br>
         {{ block.content_markdown }}
+        {{ block.created_at }}
       </div>
     </div>
 

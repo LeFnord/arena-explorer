@@ -2,9 +2,10 @@
   <div id="Search">
     <!-- <Objects v-model="models"/> -->
     <input type="text" v-model="term" @keyup.enter="searching">
-    <input type="button" value="page ++" class="accent" @click="next_page">
     <input type="button" value="page --" class="accent" @click="prev_page">
-    <!-- {{ models }} -->
+    <input type="button" value="page ++" class="accent" @click="next_page">
+    {{ results.current_page }}/{{ results.total_pages }}
+
     <Results :results="results"/>
   </div>
 </template>
@@ -30,30 +31,31 @@ export default {
       page: 1
     }
   },
-  watch: {
-    term(new_term, old_term) {
-      console.log(new_term);
-      console.log(old_term);
-    }
-  },
 
   methods: {
     next_page() {
       this.page++
-      this.handleTerm()
+      this.searchByTerm()
     },
 
     prev_page() {
       this.page--
-      this.handleTerm()
+      this.searchByTerm()
     },
 
     searching() {
       this.page = 1
-      this.handleTerm()
+      this.searchByTerm()
     },
 
-    handleTerm() {
+    searchByTerm() {
+      if (this.page > this.results.total_pages) {
+        this.page--
+        return
+      } else if (this.page == 0) {
+        this.page++
+        return
+      }
       let object_exp = new RegExp('^(c|b|C|B):\s*')
       if (this.term.startsWith('@')) {         // users
         this.q = this.term.substring(1)

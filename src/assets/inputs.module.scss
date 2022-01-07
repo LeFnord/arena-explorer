@@ -3,7 +3,8 @@
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"],
+select {
   display: inline-block;
   height: $line-height-computed;
   padding: 0 1rem;
@@ -44,6 +45,7 @@ textarea {
   border: 0;
   border-bottom: 3px solid $accent-color;
 }
+
 /* Removes awkward default styles on some inputs for iOS */
 input[type="email"],
 input[type="number"],
@@ -54,7 +56,7 @@ input[type="url"],
 input[type="password"],
 input[type="button"],
 input[type="submit"],
-textarea {
+textarea, select, option {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none; }
@@ -62,6 +64,7 @@ textarea {
   min-height: 65px;
   padding-top: 6px;
   padding-bottom: 6px; }
+
 input[type="email"]:focus,
 input[type="number"]:focus,
 input[type="search"]:focus,

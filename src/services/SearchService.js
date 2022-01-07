@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:3000/v2/',                       // local
-  // baseURL: 'https://arena-api-staging-os.herokuapp.com/v2',  // staging
+  // baseURL: 'http://localhost:3000/v2/',                       // local
+  baseURL: 'https://arena-api-staging-os.herokuapp.com/v2',  // staging
   // baseURL: 'https://api.are.na/v2',                          // production
   headers: {
     'Access-Control-Allow-Origin': '*',
@@ -26,15 +26,17 @@ export default {
     return apiClient.get(`search/${object_type}?q=${prepare(term)}&page=${page}`)
   },
 
-  explore(term, seed, models, page) {
-    console.log(models.target);
+  explore(term, seed, models, page, timestamp, sort) {
     return apiClient.get('search/explore', {
       params: {
         q: prepare(term),
         sort_by: 'random',
         page: page,
         seed: seed,
-        models: models.target
+        timestamp: timestamp,
+        models: models.target,
+        sort: sort,
+        direction: 'desc'
       }
     })
   }

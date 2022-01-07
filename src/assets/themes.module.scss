@@ -28,7 +28,8 @@ a {
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"],
+select {
   background-color: $bg;
   border: 0.5px solid $color-darker;
   box-shadow: $shadow;
@@ -68,8 +69,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
-textarea,
-select {
+textarea {
   color: $color;
   background-color: $bg;
 }
