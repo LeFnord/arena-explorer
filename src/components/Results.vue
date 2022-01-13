@@ -12,33 +12,7 @@
         <br>
         {{ result.updated_at }}
       </div>
-
     </div>
-
-    <!-- <div class="container five">
-      <h2 v-if="results.channels && results.channels.length > 0">Channels</h2>
-      <div class="card"  v-for="channel in results.channels" :key="channel.id">
-        <span class="bold">{{ channel.title }}</span>
-        <br>
-        {{ channel.updated_at }}
-      </div>
-    </div> -->
-
-    <!-- <h2 v-if="results.blocks && results.blocks.length > 0">Blocks</h2>
-    <div class="container five">
-      <div class="card" v-for="block in results.blocks" :key="block.id">
-        <span class="bold">{{ block.title }}</span>
-        <br>
-        {{ block.updated_at }}
-      </div>
-    </div> -->
-
-    <!-- <h2 v-if="results.users && results.users.length > 0">Users</h2>
-    <div class="container five">
-      <div class="card" v-for="user in results.users" :key="user.id">
-        {{ user.username }}
-      </div>
-    </div> -->
   </div>
 </template>
 <script>

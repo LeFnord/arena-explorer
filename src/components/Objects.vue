@@ -46,8 +46,8 @@ export default {
   emits: ['update:modelValue'],
   watch: {
     choosen() {
-      // let find = this.choosen.length == 0 ? this.categories : this.choosen
-      this.$emit('update:modelValue', this.choosen)
+      let find = this.choosen.length == 0 ? this.categories : this.choosen
+      this.$emit('update:modelValue', find)
     },
     selected() {
       this.$emit('update:modelValue', this.selected)

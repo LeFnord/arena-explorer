@@ -75,8 +75,23 @@ export default {
         return
       }
 
-      let seed = this.getRandomInt(1234567)
-      SearchService.explore(this.term, seed, this.models, this.page, this.timestamp, this.filters.sorting)
+      // seed: this.getRandomInt(1234567),
+      // term: this.term,
+      // models: this.models,
+      // page: this.page,
+      // timestamp: this.timestamp,
+      // sorting: this.filters.sorting,
+      let data = {
+        sort_by: this.filters.sorting,
+        page: this.page,
+        seed: this.getRandomInt(1234567),
+        timestamp: this.timestamp,
+        object_type: this.filters.scope,
+        sort: this.sorting,
+        direction: 'desc'
+      }
+
+      SearchService.explore(data)
         .then(response => {
           this.results = response.data
           this.term = null
