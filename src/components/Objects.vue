@@ -1,33 +1,30 @@
 <template>
-  <div id="Objects">
-    <div v-if="kind == 'multiple'">
-      <div v-for="option in categories" class="item">
-        <input type="checkbox" :id="option" v-model="choosen" v-bind:value="option">
-        <label :for="option">{{ option }}</label>
-      </div>
+  <div v-if="kind == 'multiple'">
+    <div v-for="option in categories" class="item">
+      <input type="checkbox" :id="option" v-model="choosen" v-bind:value="option">
+      <label :for="option" class="title">{{ option }}</label>
     </div>
+  </div>
 
-    <div v-else-if="kind == 'single'">
-      <select class="" v-model="selected">
-        <option disabled value="">Sort option</option>
-        <option v-for="option in categories">
-          {{ option }}
-        </option>
-      </select>
-    </div>
+  <div v-else-if="kind == 'single'">
+    <select class="" v-model="selected">
+      <option disabled value="">Sort option</option>
+      <option v-for="option in categories">
+        {{ option }}
+      </option>
+    </select>
+  </div>
 
-    <div v-else-if="kind == 'range'">
-      <select class="" v-model="range.key">
-        <option disabled value="">Range option</option>
-        <option v-for="option in categories">
-          {{ option }}
-        </option>
-      </select>
+  <div v-else-if="kind == 'range'">
+    <select class="" v-model="range.key">
+      <option disabled value="">Range option</option>
+      <option v-for="option in categories">
+        {{ option }}
+      </option>
+    </select>
 
-      <input type="date" v-model="range.start">
-      <input type="date" v-model="range.ende">
-    </div>
-
+    <input type="date" v-model="range.start">
+    <input type="date" v-model="range.ende">
   </div>
 </template>
 
@@ -36,8 +33,7 @@ export default {
   name: "Objects",
   data() {
     return {
-      all: 'All',
-      choosen: [],
+      choosen: this.categories,
       selected: '',
       range: {}
     }
@@ -50,8 +46,8 @@ export default {
   emits: ['update:modelValue'],
   watch: {
     choosen() {
-      let find = this.choosen.length == 0 ? ['ALL'] : this.choosen
-      this.$emit('update:modelValue', find)
+      // let find = this.choosen.length == 0 ? this.categories : this.choosen
+      this.$emit('update:modelValue', this.choosen)
     },
     selected() {
       this.$emit('update:modelValue', this.selected)
@@ -69,11 +65,10 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/app.scss';
 
-div#Objects {
-  // position: relative;
-  // display: row;
-  margin-bottom: 1rem;
+.title {
+  text-transform: capitalize;
 }
+
 .item {
   display: inline-block;
 }

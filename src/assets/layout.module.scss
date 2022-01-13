@@ -25,11 +25,14 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 1rem;
-  &.six {
-    grid-template-columns: repeat(6, 1fr);
+  &.three {
+    grid-template-columns: repeat(3, 1fr);
   }
   &.five {
     grid-template-columns: repeat(5, 1fr);
+  }
+  &.six {
+    grid-template-columns: repeat(6, 1fr);
   }
   &.twelve {
     grid-template-columns: repeat(12, 1fr);

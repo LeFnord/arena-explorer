@@ -1,18 +1,16 @@
 <template>
   <div id="Explore">
-    <!-- <Objects v-model="models"/> -->
     <input type="text" v-model="term" @keyup.enter="explore">
 
     <Objects v-model="filters.scope" :categories="scopes" :kind="'multiple'"/>
     <Objects v-model="filters.sorting" :categories="sorts" :kind="'single'"/>
     <Objects v-model="filters.range" :categories="ranges" :kind="'range'"/>
 
-    <input type="button" value="explore" class="accent" @click="exploring">
+    <input type="button" value="--" @click="prev_page">
+    <input type="button" value="++" @click="next_page">
+    <input type="button" value="explore" @click="exploring" class="primary">
 
-    <input type="button" value="page --" class="accent" @click="prev_page">
-    <input type="button" value="page ++" class="accent" @click="next_page">
-    {{ this.results.current_page }}/{{ this.results.total_pages }}
-    <br>
+      {{ this.results.current_page }}/{{ this.results.total_pages }}
 
     <Results :results="results" :filters="filters"/>
   </div>
@@ -37,7 +35,7 @@ export default {
       models: ['ALL'],
       filters: {},
 
-      scopes: ['Block', 'Channel', 'User', 'Group'],
+      scopes: ['blocks', 'channels', 'users'],
       sorts: ['updated_at', 'created_at', 'random'],
       ranges: ['updated_at', 'created_at'],
 
