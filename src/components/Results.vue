@@ -3,8 +3,9 @@
     <h2 v-if="results.channels && results.channels.length > 0">Channels</h2>
     <div class="container five">
       <div class="card"  v-for="channel in results.channels" :key="channel.id">
-        {{ channel.title }}
-        {{ channel.created_at }}
+        <span class="bold">{{ channel.title }}</span>
+        <br>
+        {{ channel.updated_at }}
       </div>
     </div>
 
@@ -13,8 +14,7 @@
       <div class="card" v-for="block in results.blocks" :key="block.id">
         <span class="bold">{{ block.title }}</span>
         <br>
-        {{ block.content_markdown }}
-        {{ block.created_at }}
+        {{ block.updated_at }}
       </div>
     </div>
 
