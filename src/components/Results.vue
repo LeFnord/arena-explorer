@@ -1,5 +1,6 @@
 <template>
   <div id="Results">
+    {{ filters }}
     <h2 v-if="results.channels && results.channels.length > 0">Channels</h2>
     <div class="container five">
       <div class="card"  v-for="channel in results.channels" :key="channel.id">
@@ -30,9 +31,8 @@
 export default {
   name: "Results",
   props: {
-    results: {
-      type: Object
-    }
+    results: Object,
+    filters: Object
   },
   data() {
     return {
