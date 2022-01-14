@@ -1,22 +1,18 @@
 <template>
   <div id="Explore">
-    <!-- <Objects v-model="models"/> -->
     <input type="text" v-model="term" @keyup.enter="explore">
 
-    <select class="accent" v-model="sort">
-      <option disabled value="">Please select one</option>
-      <option>updated_at</option>
-      <option>created_at</option>
-      <option>random</option>
-    </select>
+    <Objects v-model="filters.scope" :categories="scopes" :kind="'multiple'"/>
+    <Objects v-model="filters.sorting" :categories="sorts" :kind="'single'"/>
+    <Objects v-model="filters.range" :categories="ranges" :kind="'range'"/>
 
-    <input type="button" value="explore" class="accent" @click="exploring">
+    <input type="button" value="--" @click="prev_page">
+    <input type="button" value="++" @click="next_page">
+    <input type="button" value="explore" @click="exploring" class="primary">
 
-    <input type="button" value="page --" class="accent" @click="prev_page">
-    <input type="button" value="page ++" class="accent" @click="next_page">
-    {{ this.results.current_page }}/{{ this.results.total_pages }}
+      {{ this.results.current_page }}/{{ this.results.total_pages }}
 
-    <Results :results="results"/>
+    <Results :results="results" :filters="filters"/>
   </div>
 </template>
 
@@ -34,12 +30,21 @@ export default {
   },
   data() {
     return {
+      // request params with defaults
       term: null,
       models: ['ALL'],
-      results: {},
+      filters: {},
+
+      scopes: ['blocks', 'channels', 'users'],
+      sorts: ['updated_at', 'created_at', 'random'],
+      ranges: ['updated_at', 'created_at'],
+
       page: 1,
       timestamp: new Date(),
-      sort: 'updated_at'
+      sort: 'updated_at',
+
+      // raw response
+      results: {},
     }
   },
   watch: {
@@ -70,8 +75,23 @@ export default {
         return
       }
 
-      let seed = this.getRandomInt(1234567)
-      SearchService.explore(this.term, seed, this.models, this.page, this.timestamp, this.sort)
+      // seed: this.getRandomInt(1234567),
+      // term: this.term,
+      // models: this.models,
+      // page: this.page,
+      // timestamp: this.timestamp,
+      // sorting: this.filters.sorting,
+      let data = {
+        sort_by: this.filters.sorting,
+        page: this.page,
+        seed: this.getRandomInt(1234567),
+        timestamp: this.timestamp,
+        object_type: this.filters.scope,
+        sort: this.sorting,
+        direction: 'desc'
+      }
+
+      SearchService.explore(data)
         .then(response => {
           this.results = response.data
           this.term = null

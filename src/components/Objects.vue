@@ -1,9 +1,30 @@
 <template>
-  <div id="Objects">
-    <div v-for="option in available" class="item">
+  <div v-if="kind == 'multiple'">
+    <div v-for="option in categories" class="item">
       <input type="checkbox" :id="option" v-model="choosen" v-bind:value="option">
-      <label :for="option">{{ option }}</label>
+      <label :for="option" class="title">{{ option }}</label>
     </div>
+  </div>
+
+  <div v-else-if="kind == 'single'">
+    <select class="" v-model="selected">
+      <option disabled value="">Sort option</option>
+      <option v-for="option in categories">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+
+  <div v-else-if="kind == 'range'">
+    <select class="" v-model="range.key">
+      <option disabled value="">Range option</option>
+      <option v-for="option in categories">
+        {{ option }}
+      </option>
+    </select>
+
+    <input type="date" v-model="range.start">
+    <input type="date" v-model="range.ende">
   </div>
 </template>
 
@@ -12,20 +33,31 @@ export default {
   name: "Objects",
   data() {
     return {
-      all: 'All',
-      choosen: [],
-      available: ['Block', 'Channel', 'User', 'Group']
+      choosen: this.categories,
+      selected: '',
+      range: {}
     }
   },
   props: {
-    modelValue: Array
+    modelValue: [Object, Array, String],
+    categories: Array,
+    kind: String,
   },
   emits: ['update:modelValue'],
   watch: {
     choosen() {
-      let find = this.choosen.length == 0 ? ['ALL'] : this.choosen
+      let find = this.choosen.length == 0 ? this.categories : this.choosen
       this.$emit('update:modelValue', find)
-    }
+    },
+    selected() {
+      this.$emit('update:modelValue', this.selected)
+    },
+    range: {
+      handler() {
+        this.$emit('update:modelValue', this.range)
+      },
+      deep: true
+    },
   }
 }
 </script>
@@ -33,14 +65,14 @@ export default {
 <style lang="scss" scoped>
 @import '@/assets/app.scss';
 
-div#Objects {
-  display: block;
-  margin-bottom: 1rem;
+.title {
+  text-transform: capitalize;
 }
+
 .item {
   display: inline-block;
 }
-input {
+input[type="checkbox"] {
   position: absolute;
   left: -9999px;
 }

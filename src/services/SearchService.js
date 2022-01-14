@@ -26,18 +26,10 @@ export default {
     return apiClient.get(`search/${object_type}?q=${prepare(term)}&page=${page}`)
   },
 
-  explore(term, seed, models, page, timestamp, sort) {
+  explore(data) {
+    console.log(data);
     return apiClient.get('search/explore', {
-      params: {
-        q: prepare(term),
-        sort_by: 'random',
-        page: page,
-        seed: seed,
-        timestamp: timestamp,
-        models: models.target,
-        sort: sort,
-        direction: 'desc'
-      }
+      params: data
     })
   }
 }

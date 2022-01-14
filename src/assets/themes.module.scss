@@ -104,9 +104,25 @@ textarea {
 //   input[type="tel"],
 //   input[type="url"],
 //   input[type="password"],
+//   input[type="date"],
 //   textarea,
 //   select {
 //     color: $bg-darker;
 //     background-color: $color-lighter;
+//   }
+//
+//   .button,
+//   button,
+//   input[type="submit"],
+//   input[type="reset"],
+//   input[type="button"] {
+//     color: $bg-darker;
+//     background-color: $color-lighter;
+//     &:hover {
+//       background-color: $bg-darker;
+//       border-color: $color-darker;
+//       outline: 0;
+//       box-shadow: $shadow-active;
+//     }
 //   }
 // }
