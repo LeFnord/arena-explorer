@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "sass": "^1.48.0",
-    "vue": "^3.2.26",
+    "vue": "^3.2.31",
     "vue-router": "4"
   },
   "devDependencies": {
