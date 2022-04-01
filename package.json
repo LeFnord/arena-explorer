@@ -13,7 +13,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "sass": "^1.49.10",
     "vue": "^3.2.31",
     "vue-router": "4"
